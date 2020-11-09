@@ -1,0 +1,66 @@
+name: mongo44-configurable
+version: '1.1'
+base: core18
+architectures:
+  - build-on: amd64
+    run-on: amd64
+
+  - build-on: arm64
+    run-on: arm64
+    
+summary: MongoDB document-oriented database
+description: |
+
+    The Snap configuration files are stored in: /var/snap/mongo44-configurable/buildVersion/mongodb.conf
+    
+    MongoDB is a high-performance, open source, schema-free
+    document-oriented data store that's easy to deploy, manage
+    and use. It's network accessible, written in C++ and offers
+    the following features:
+
+       * Collection oriented storage - easy storage of object-style data
+       * Full index support, including on inner objects
+       * Query profiling
+       * Replication and fail-over support
+       * Efficient storage of binary data including large objects (e.g. videos)
+       * Auto-sharding for cloud-level scalability
+
+    High performance, scalability, and reasonable depth of functionality
+    are the goals for the project.
+
+confinement: strict
+
+apps:
+    
+    mongod:
+        command: bin/run.sh 
+        daemon: simple
+        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+        restart-condition: on-failure
+        
+    info:
+        command: bin/info.sh 
+        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+     
+
+        
+
+parts:
+
+    
+    mongodb:
+        plugin: dump
+        source:
+         - on amd64: ./amd64.deb
+         - on arm64: ./arm64.deb
+        stage-packages:
+            - libssl1.1
+            - libcurl3-dev
+            - libcurl4-openssl-dev
+
+  
+    shscripts:  
+        source: ./shscripts/
+        plugin: dump
+        organize:
+          '*': bin/
