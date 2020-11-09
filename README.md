@@ -1,8 +1,8 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-./arm64.deb and ./amd64.deb are the original mongodb-community server packages downloaded by:
-https://www.mongodb.com/try/download/community
+**./arm64.deb and ./amd64.deb are the original mongodb-community server packages downloaded by:
+https://www.mongodb.com/try/download/community**
 
 # mongodb44-configurable-snap
 
