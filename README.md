@@ -14,10 +14,19 @@ Installable trough snapd:
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/mongo44-configurable)
 
 
+    The Snap configuration files are stored in: /var/snap/mongo44-configurable/common/mongodb.conf 
+   
+    the snaps mantains data and configuration across installations
+    
+    use "mongo44-configurable.reset" to reset data and configuration    
+    use "mongo44-configurable.restore-conf" to reset configuration
+    use "mongo44-configurable.remove-data" to reset data 
+
+
 https://snapcraft.io/mongo44-configurable
 
-command:
-*- sudo snap install mongo36-configurable*
+install command:
+*- sudo snap install mongo44-configurable*
 
 
 ## Step 0 - System setup - if needed

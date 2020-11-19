@@ -10,12 +10,19 @@ architectures:
     
 summary: MongoDB document-oriented database
 description: |
-
-    The Snap configuration files are stored in: /var/snap/mongo44-configurable/buildVersion/mongodb.conf
+    The Snap configuration files are stored in: /var/snap/mongo44-configurable/common/mongodb.conf 
+   
+    the snaps mantains data and configuration across installations
+    
+    use "mongo44-configurable.reset" to reset data and configuration    
+    use "mongo44-configurable.restore-conf" to reset configuration
+    use "mongo44-configurable.remove-data" to reset data 
+    
+    restart the app fater any procedure above    
     
     MongoDB is a high-performance, open source, schema-free
     document-oriented data store that's easy to deploy, manage
-    and use. It's network accessible, written in C++ and offers
+    and use. It's network accessible, written in C++ and offers 
     the following features:
 
        * Collection oriented storage - easy storage of object-style data
@@ -38,11 +45,25 @@ apps:
         plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
         restart-condition: on-failure
         
+        
+    restore-conf: 
+        command: bin/restorec.sh
+        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+
+        
+    remove-data: 
+        command: bin/remdata.sh
+        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+        
+        
+    reset: 
+        command: bin/reset.sh
+        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+        
     info:
         command: bin/info.sh 
         plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
-     
-
+       
         
 
 parts:

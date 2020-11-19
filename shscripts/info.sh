@@ -1,6 +1,10 @@
 #!/bin/bash
 
-echo "The Snap configuration files are stored in: /var/snap/mongo44-configurable/buildVersion/mongodb.conf"
+echo "The Snap configuration files are stored in:"
+echo $SNAP_COMMON
+
+
+
 
 exit 0
 
