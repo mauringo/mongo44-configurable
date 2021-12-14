@@ -1,6 +1,6 @@
 name: mongo44-configurable
 version: '1.5'
-base: core18
+base: core20
 architectures:
   - build-on: amd64
     run-on: amd64
