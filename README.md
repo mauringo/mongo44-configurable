@@ -25,6 +25,7 @@ Installable trough snapd:
 
 https://snapcraft.io/mongo44-configurable
 
+
 install command:
 *- sudo snap install mongo44-configurable*
 
